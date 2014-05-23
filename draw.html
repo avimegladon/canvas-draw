@@ -9,14 +9,14 @@
 var can, ctx, can_main, ctx_main;
 var color = '#000000';
 var tool;
-var tool1 = 'pencil'; // pencil, line
+var tool_d = 'pencil'; // pencil, line
 var tools = {};
 var text = '';
 
 
 function selectTool(t){
-	tool1 = t;
-	tool = new tools[tool1]();
+	tool_d = t;
+	tool = new tools[tool_d]();
 }
 
 function selectColor(c){
@@ -41,7 +41,7 @@ function init() {
 	can.addEventListener('mousemove', mouse_track, false);
 	can.addEventListener('mousedown', mouse_track, false);
 	can.addEventListener('mouseup', mouse_track, false);
-	selectTool(tool1);
+	selectTool(tool_d);
 
 }
 
@@ -308,6 +308,8 @@ tools.eraser = function(){
 	list-style-type:none;
 	font-family:Arial, Helvetica, sans-serif;
 	cursor:pointer;
+	float:left;
+	padding:0;
 }
 .tools li{
 	float:left;
@@ -337,6 +339,8 @@ tools.eraser = function(){
 	<li onclick="selectColor('#0000ff')"><div style="background-color:#0000ff; width:15px; height:15px;"></div></li>
 	<li onclick="selectColor('#00ff00')"><div style="background-color:#00ff00; width:15px; height:15px;"></div></li>
 	<li onclick="selectColor('#000000')"><div style="background-color:#000000; width:15px; height:15px;"></div></li>
+	<li onclick="selectColor('#cccccc')"><div style="background-color:#cccccc; width:15px; height:15px;"></div></li>
+	<li onclick="selectColor('#ffb300')"><div style="background-color:#ffb300; width:15px; height:15px;"></div></li>
 </ul>
 <input type="text" name="write" id="write" value="Test" onkeyup="UpdateText()" />
 <div id="test"></div>
